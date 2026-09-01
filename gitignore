@@ -1,0 +1,30 @@
+# ── Modelos MediaPipe ────────────────────────────────────────────────────────
+# Se descargan automáticamente al correr test_pipeline.py por primera vez
+models/
+
+# ── Corpus de grabaciones ─────────────────────────────────────────────────────
+# Se comparte por OneDrive, no va en el repositorio
+corpus/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# ── Archivos temporales de grabación ─────────────────────────────────────────
+features_test.npy
+frame_*.png
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.code-workspace
+
+# ── Sistema operativo ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
