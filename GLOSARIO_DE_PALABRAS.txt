@@ -1,7 +1,7 @@
 GLOSARIO DE SEÑAS	
 
 Saludos y cortesía
-Hola, buenos días, buenas tardes, buenas noches, gracias, por favor, de nada, perdón, hasta luego
+Hola, buenos días, buenas tardes, buenas noches, gracias, por favor, de nada, perdón, hasta luego, ¿Cómo estás?
 
 Respuestas básicas
 Si, no, no entiendo, repetir, despacio
@@ -10,13 +10,13 @@ Identificación personal
 DNI, dirección, teléfono, fecha, nacimiento, edad, nombre, apellido
 
 Verbos
-Quiero, necesito, tengo, puedo, buscar, espero, ayuda, firmar
+Quiero, necesito, tengo, puedo, buscar, espero, ayuda, firmar, hacer
 
 Trámites
 Turno, numero, información, caja
 
 Contexto bancario
-Tarjeta, efectivo o dinero, pago, depósito, retiro, transferencia, cuenta, préstamo, saldo
+Tarjeta, efectivo o dinero, pago, depósito, retiro, transferencia, cuenta, préstamo, saldo, crédito, débito
 
 Preguntas
 Cuánto, dónde, cómo, cuándo, qué
