@@ -4,10 +4,10 @@ Saludos y cortesía
 Hola, buenos días, buenas tardes, buenas noches, gracias, por favor, de nada, perdón, hasta luego, ¿Cómo estás?
 
 Respuestas básicas
-Si, no, no entiendo, repetir, despacio
+Si, no, no entiendo, repetir, despacio, más o menos
 
 Identificación personal
-DNI, dirección, teléfono, fecha, nacimiento, edad, nombre, apellido
+DNI, dirección, teléfono, fecha, nacimiento, edad, nombre, apellido, firma
 
 Verbos
 Quiero, necesito, tengo, puedo, buscar, espero, ayuda, firmar, hacer
@@ -22,5 +22,8 @@ Preguntas
 Cuánto, dónde, cómo, cuándo, qué
 
 Pronombres
-Yo, el, ella, usted.
+Yo, el, ella, usted, nosotros, vos.
+
+Tiempo
+hoy, mañana, ayer, semana, mes, año, hora, tarde, temprano
 
