@@ -1,0 +1,26 @@
+GLOSARIO DE SEÑAS	
+
+Saludos y cortesía
+Hola, buenos días, buenas tardes, buenas noches, gracias, por favor, de nada, perdón, hasta luego
+
+Respuestas básicas
+Si, no, no entiendo, repetir, despacio
+
+Identificación personal
+DNI, dirección, teléfono, fecha, nacimiento, edad, nombre, apellido
+
+Verbos
+Quiero, necesito, tengo, puedo, buscar, espero, ayuda, firmar
+
+Trámites
+Turno, numero, información, caja
+
+Contexto bancario
+Tarjeta, efectivo o dinero, pago, depósito, retiro, transferencia, cuenta, préstamo, saldo
+
+Preguntas
+Cuánto, dónde, cómo, cuándo, qué
+
+Pronombres
+Yo, el, ella, usted.
+
