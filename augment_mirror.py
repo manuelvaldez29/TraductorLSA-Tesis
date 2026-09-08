@@ -86,12 +86,22 @@ def mirror_sequence(seq: np.ndarray) -> np.ndarray:
 
     Returns:
         mir: array float32 de shape (T, 237) con la seña espejada
+
+    Nota sobre frames sin detección:
+        Cuando MediaPipe no detecta una mano o pose, el extractor guarda
+        ceros. Si aplicáramos x → 1-x sobre esos ceros, obtendríamos x=1,
+        lo que parecería un landmark en el borde derecho de la imagen.
+        Para evitarlo, el flip de x se aplica frame a frame SOLO cuando
+        el bloque correspondiente tiene datos reales (al menos un valor ≠ 0).
+        Las coordenadas de cara usan x → -x, y -0 = 0, así que no sufren
+        este problema.
     """
     assert seq.ndim == 2 and seq.shape[1] == FEATURE_DIM, (
         f"Shape esperado (T, {FEATURE_DIM}), recibido {seq.shape}"
     )
 
     mir = seq.copy()
+    T   = seq.shape[0]
 
     # ── 1. MANOS ──────────────────────────────────────────────────────────────
     # Swap: bloque izquierdo ↔ bloque derecho
@@ -100,9 +110,12 @@ def mirror_sequence(seq: np.ndarray) -> np.ndarray:
     mir[:, HAND_IZQ_SLICE] = der
     mir[:, HAND_DER_SLICE] = izq
 
-    # Flip x en ambos bloques (stride=3: x es el primer valor de cada landmark)
-    mir[:, 0:63:3]   = 1.0 - mir[:, 0:63:3]    # mano izq (ahora der espejada)
-    mir[:, 63:126:3] = 1.0 - mir[:, 63:126:3]  # mano der (ahora izq espejada)
+    # Flip x frame a frame, solo si la mano fue detectada (bloque ≠ 0)
+    for t in range(T):
+        if np.any(mir[t, HAND_IZQ_SLICE] != 0):   # mano izq (ahora contiene der orig)
+            mir[t, 0:63:3] = 1.0 - mir[t, 0:63:3]
+        if np.any(mir[t, HAND_DER_SLICE] != 0):   # mano der (ahora contiene izq orig)
+            mir[t, 63:126:3] = 1.0 - mir[t, 63:126:3]
 
     # ── 2. POSE ───────────────────────────────────────────────────────────────
     # Swap pares L/R
@@ -113,11 +126,13 @@ def mirror_sequence(seq: np.ndarray) -> np.ndarray:
         mir[:, a0:a0 + POSE_STRIDE] = mir[:, b0:b0 + POSE_STRIDE]
         mir[:, b0:b0 + POSE_STRIDE] = tmp
 
-    # Flip x en todos los landmarks de pose
+    # Flip x de pose frame a frame, solo si pose fue detectada
     n_pose_lm = (FACE_BASE - POSE_BASE) // POSE_STRIDE   # = 9
-    for i in range(n_pose_lm):
-        x_idx = POSE_BASE + i * POSE_STRIDE
-        mir[:, x_idx] = 1.0 - mir[:, x_idx]
+    for t in range(T):
+        if np.any(mir[t, POSE_BASE:FACE_BASE] != 0):
+            for i in range(n_pose_lm):
+                x_idx = POSE_BASE + i * POSE_STRIDE
+                mir[t, x_idx] = 1.0 - mir[t, x_idx]
 
     # ── 3. CARA ───────────────────────────────────────────────────────────────
     # Swap pares L/R
