@@ -1,0 +1,23 @@
+﻿# Modelos MediaPipe
+models/
+
+# Corpus de grabaciones
+corpus/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Archivos temporales
+features_test.npy
+frame_*.png
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
